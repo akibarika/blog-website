@@ -1,10 +1,3 @@
-const blogListPerPageCount = 5
-const activePaginationClassName = 'active-pagination-link'
-const blogListQs = 'fields=_id,title,summary,createTime,viewTimes,tags,category'
-const blogQs =
-    'fields=title,summary,createTime,viewTimes,tags,category,htmlContent,toc'
-const apiPrefix = '/api'
-
 const navList = [
     {
         key: 'home',
@@ -37,10 +30,5 @@ const navList = [
 ]
 
 export {
-    blogListPerPageCount,
-    activePaginationClassName,
-    blogListQs,
-    navList,
-    apiPrefix,
-    blogQs
+    navList
 }

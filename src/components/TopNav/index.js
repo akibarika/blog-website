@@ -116,8 +116,8 @@ class TopNav extends Component {
 
     render() {
         return (
-            <StyledBackgroundContainer>
-                <Container lrPadding={0}>
+            <StyledBackgroundContainer fluid lrPadding={0}>
+                <Container lrPaddigng={0}>
                     <StyledTopNav className={this.state.className}>
                         {this.props.navList.map(item => (
                             <NavLink
