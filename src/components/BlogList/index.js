@@ -1,5 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import ContentLoader from '../ContentLoader'
+import {connect} from 'react-redux'
+import {bindActionCreators} from "redux";
+import {requestGetBlogList} from '../../reducers/blogList'
+import PointOutContent from '../PointOutContent'
 
 const StyledContainer = styled.div`
     background-color: #fff;
@@ -52,11 +58,26 @@ const StyledInfo = styled.div`
 
 
 class BlogList extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        this.props.requestGetBlogList()
+    }
+
     render() {
+        const {status} = this.props
+
+        if (status === 'pending' || status === '') {
+            return <ContentLoader height={650}/>
+        } else if (status === 'failure') {
+            return <PointOutContent text="error, please refresh the page"/>
+        }
         return (
             <StyledContainer>
                 <StyledTitle>
-                    <a href="/blogs/1" onClick="">
+                    <a href="/blogs/1">
                         Lorem Ipsum
                     </a>
                 </StyledTitle>
@@ -87,5 +108,23 @@ class BlogList extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+    status: state.blogList.status,
+    blogList: state.blogList.list,
+    amount: state.blogList.amount
+})
 
-export default BlogList
+const mapDispatchToProps = dispatch => bindActionCreators(
+    {
+        requestGetBlogList
+    },
+    dispatch
+)
+
+
+BlogList.propTypes = {
+    status: PropTypes.string,
+    blogList: PropTypes.array,
+    amount: PropTypes.number
+}
+export default connect(mapStateToProps, mapDispatchToProps)(BlogList)

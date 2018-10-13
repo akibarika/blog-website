@@ -5,7 +5,7 @@ const initState = {
     categoryCount: 0
 }
 
-export default (state = initState) => {
+export default (state = initState, action) => {
     return state
 }
 

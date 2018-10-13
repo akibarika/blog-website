@@ -1,5 +1,11 @@
 import React from "react";
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import ContentLoader from '../ContentLoader'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {requestGetBlog} from '../../reducers/blog'
+import PointOutContent from '../PointOutContent'
 
 const StyledBlogContainer = styled.div`
     background-color: #fff;
@@ -28,7 +34,22 @@ const StyledBlogContent = styled.div`
 `
 
 class Blog extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        this.props.requestGetBlog()
+    }
+
     render() {
+        const {status} = this.props
+
+        if (status === '' || status === 'pending') {
+            return <ContentLoader height={800}/>
+        } else if (status === 'failure') {
+            return <PointOutContent text="error, please refresh the page"/>
+        }
         return (
             <StyledBlogContainer>
                 <StyledInfoContainer>
@@ -65,5 +86,21 @@ class Blog extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+    status: state.blog.status,
+    blog: state.blog.data
+})
 
-export default Blog
+const mapDispatchToProps = dispatch => bindActionCreators(
+    {
+        requestGetBlog
+    },
+    dispatch
+)
+
+Blog.propTypes = {
+    status: PropTypes.string,
+    blog: PropTypes.object
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blog)
