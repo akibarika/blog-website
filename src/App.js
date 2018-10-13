@@ -4,8 +4,10 @@ import TopNav from './components/TopNav'
 import {navList} from './constants'
 import Container from './components/Container'
 import Grid from './components/Grid'
+import Footer from './components/Footer'
 import ProfileCard from './components/ProfileCard'
 import PointOutContent from './components/PointOutContent'
+import BlogList from './components/BlogList'
 
 import './app.css'
 import logo from './logo.svg';
@@ -23,6 +25,8 @@ class App extends Component {
                         <Grid.Row>
                             <Grid.Col xs={12} sm={12} md={12} lg={8.5} xl={9}>
                                 <Switch>
+                                    <Route exact path="/" component={BlogList}></Route>
+                                    <Route exact path="/blogs" component={BlogList}></Route>
                                     <Route path="/tags" component={OnDevelopingContent}/>
                                     <Route path="/categories" component={OnDevelopingContent}/>
                                     <Route component={NotFoundContent}/>
@@ -33,6 +37,7 @@ class App extends Component {
                             </Grid.Col>
                         </Grid.Row>
                     </Container>
+                    <Footer/>
                 </div>
             </Router>
         );
