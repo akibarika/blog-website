@@ -56,32 +56,32 @@ class BlogList extends React.Component {
         return (
             <StyledContainer>
                 <StyledTitle>
-                    <a href="" onClick="">
+                    <a href="/blogs/1" onClick="">
                         Lorem Ipsum
                     </a>
-                    <StyledSummary>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vulputate tortor quis euismod
-                        tempor.
-                        Quisque eleifend, leo ac efficitur varius, odio felis gravida elit, ut laoreet erat purus vitae
-                        neque.
-                        Nam congue orci vel ligula tempor molestie. Nullam dolor ligula, auctor eu nisi vel, euismod
-                        dignissim
-                        orci. Aenean non lorem accumsan, mollis dolor a, imperdiet massa. Aenean lectus lacus, molestie
-                        eget
-                        ultricies eu, pretium id nibh. Phasellus malesuada laoreet turpis ut finibus.
-                    </StyledSummary>
-                    <StyledInfoContainer>
-                        <StyledInfo>
-                            <i className="fas fa-clock"/>&nbsp;&nbsp; 13/10/2018
-                        </StyledInfo>
-                        <StyledInfo>
-                            <i className="fas fa-eye"/>&nbsp;&nbsp;23
-                        </StyledInfo>
-                        <StyledInfo>
-                            <i className="fas fa-tag"/>&nbsp;&nbsp;Tag
-                        </StyledInfo>
-                    </StyledInfoContainer>
                 </StyledTitle>
+                <StyledSummary>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vulputate tortor quis euismod
+                    tempor.
+                    Quisque eleifend, leo ac efficitur varius, odio felis gravida elit, ut laoreet erat purus vitae
+                    neque.
+                    Nam congue orci vel ligula tempor molestie. Nullam dolor ligula, auctor eu nisi vel, euismod
+                    dignissim
+                    orci. Aenean non lorem accumsan, mollis dolor a, imperdiet massa. Aenean lectus lacus, molestie
+                    eget
+                    ultricies eu, pretium id nibh. Phasellus malesuada laoreet turpis ut finibus.
+                </StyledSummary>
+                <StyledInfoContainer>
+                    <StyledInfo>
+                        <i className="fas fa-clock"/>&nbsp;&nbsp; 13/10/2018
+                    </StyledInfo>
+                    <StyledInfo>
+                        <i className="fas fa-eye"/>&nbsp;&nbsp;23
+                    </StyledInfo>
+                    <StyledInfo>
+                        <i className="fas fa-tag"/>&nbsp;&nbsp;Tag
+                    </StyledInfo>
+                </StyledInfoContainer>
             </StyledContainer>
         )
     }

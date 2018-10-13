@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import ProfileCard from './components/ProfileCard'
 import PointOutContent from './components/PointOutContent'
 import BlogList from './components/BlogList'
+import Blog from './components/Blog'
 
 import './app.css'
 import logo from './logo.svg';
@@ -27,6 +28,7 @@ class App extends Component {
                                 <Switch>
                                     <Route exact path="/" component={BlogList}></Route>
                                     <Route exact path="/blogs" component={BlogList}></Route>
+                                    <Route path="/blogs/:blogId" component={Blog} />
                                     <Route path="/tags" component={OnDevelopingContent}/>
                                     <Route path="/categories" component={OnDevelopingContent}/>
                                     <Route component={NotFoundContent}/>
