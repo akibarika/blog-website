@@ -60,10 +60,16 @@ const StyledInfo = styled.div`
 class BlogList extends React.Component {
     constructor(props) {
         super(props)
+        this.onTitleClick = this.onTitleClick.bind(this)
     }
 
     componentDidMount() {
         this.props.requestGetBlogList()
+    }
+
+    onTitleClick(e, to) {
+        e.preventDefault()
+        this.props.history.push(`/blogs/${to}`)
     }
 
     render() {
@@ -77,7 +83,8 @@ class BlogList extends React.Component {
         return (
             <StyledContainer>
                 <StyledTitle>
-                    <a href="/blogs/1">
+                    <a href="/blogs/1"
+                       onClick={e => this.onTitleClick(e, `1`)}>
                         Lorem Ipsum
                     </a>
                 </StyledTitle>
