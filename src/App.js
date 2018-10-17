@@ -26,9 +26,9 @@ class App extends Component {
                         <Grid.Row>
                             <Grid.Col xs={12} sm={12} md={12} lg={8.5} xl={9}>
                                 <Switch>
-                                    <Route exact path="/" component={BlogList}></Route>
-                                    <Route exact path="/blogs" component={BlogList}></Route>
-                                    <Route path="/blogs/:blogId" component={Blog} />
+                                    <Route exact path="/" component={BlogList}/>
+                                    <Route exact path="/blogs" component={BlogList}/>
+                                    <Route path="/blogs/:blogId" component={Blog}/>
                                     <Route path="/tags" component={OnDevelopingContent}/>
                                     <Route path="/categories" component={OnDevelopingContent}/>
                                     <Route component={NotFoundContent}/>
