@@ -104,11 +104,16 @@ class TopNav extends Component {
     }
 
     onIconClick = (e) => {
-
+        e.preventDefault()
+        if (this.state.className !== '') {
+            this.setState({className: ''})
+        } else {
+            this.setState({className: responsiveTopNavClassName})
+        }
     }
 
     onLinkClick = () => {
-
+        this.setState({ className: '' })
     }
 
     render() {
